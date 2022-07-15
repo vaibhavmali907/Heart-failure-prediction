@@ -541,7 +541,7 @@ import pandas as pd
 
 from inference import predict
 
-df = pd.read_csv(r"test.csv")
+df = pd.read_csv("test.csv")
 
 output = predict(df)
 
