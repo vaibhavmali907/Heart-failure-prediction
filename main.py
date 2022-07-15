@@ -11,6 +11,12 @@ import matplotlib
 import plotly.graph_objects as go
 import plotly.express as px
 
+# Model evaluation
+from sklearn.metrics import roc_auc_score
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import f1_score
+
 #default theme
 sns.set(context='notebook', style='darkgrid', palette='colorblind', font='sans-serif', font_scale=1, rc=None)
 matplotlib.rcParams['figure.figsize'] =[8,8]
@@ -230,6 +236,21 @@ mylist.append(acc_logreg)
 print(cm)
 print(acc_logreg)
 
+# Evaluation metrics
+
+acc = accuracy_score(y_test, y_pred)
+roc_auc = roc_auc_score(y_test, y_pred)
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
+
+print(pd.Series({"Accuracy": acc,
+                 "ROC-AUC": roc_auc,
+                 "Precision": precision,
+                 "Recall": recall,
+                 "F1-score": f1}).to_string())
+
+
 # Finding the optimum number of neighbors
 
 from sklearn.neighbors import KNeighborsClassifier
@@ -262,6 +283,21 @@ mylist.append(acc_knn)
 print(cm)
 print(acc_knn)
 
+# Evaluation metrics
+acc = accuracy_score(y_test, y_pred)
+roc_auc = roc_auc_score(y_test, y_pred)
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
+
+print(pd.Series({"Accuracy": acc,
+                 "ROC-AUC": roc_auc,
+                 "Precision": precision,
+                 "Recall": recall,
+                 "F1-score": f1}).to_string())
+
+
+
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
 list1 = []
@@ -292,6 +328,20 @@ acc_svc = accuracy_score(y_test, y_pred)
 print(cm)
 print(acc_svc)
 mylist.append(acc_svc)
+
+# Evaluation metrics
+acc = accuracy_score(y_test, y_pred)
+roc_auc = roc_auc_score(y_test, y_pred)
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
+
+print(pd.Series({"Accuracy": acc,
+                 "ROC-AUC": roc_auc,
+                 "Precision": precision,
+                 "Recall": recall,
+                 "F1-score": f1}).to_string())
+
 
 # Finding the optimum number of max_leaf_nodes
 
@@ -326,6 +376,20 @@ print(cm)
 print(acc_decisiontree)
 mylist.append(acc_decisiontree)
 
+# Evaluation metrics
+acc = accuracy_score(y_test, y_pred)
+roc_auc = roc_auc_score(y_test, y_pred)
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
+
+print(pd.Series({"Accuracy": acc,
+                 "ROC-AUC": roc_auc,
+                 "Precision": precision,
+                 "Recall": recall,
+                 "F1-score": f1}).to_string())
+
+
 #Finding the optimum number of n_estimators
 
 from sklearn.ensemble import RandomForestClassifier
@@ -359,6 +423,21 @@ acc_randomforest = accuracy_score(y_test, y_pred)
 mylist.append(acc_randomforest)
 print(cm)
 print(acc_randomforest)
+
+# Evaluation metrics
+acc = accuracy_score(y_test, y_pred)
+roc_auc = roc_auc_score(y_test, y_pred)
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
+
+print(pd.Series({"Accuracy": acc,
+                 "ROC-AUC": roc_auc,
+                 "Precision": precision,
+                 "Recall": recall,
+                 "F1-score": f1}).to_string())
+
+
 
 pickle.dump(classifier,open('classifier.pkl','wb'))
 
@@ -418,6 +497,21 @@ ac_ann = accuracy_score(y_test,y_pred)
 print("Accuracy")
 print(ac_ann)
 mylist.append(ac_ann)
+
+# Evaluation metrics
+acc = accuracy_score(y_test, y_pred)
+roc_auc = roc_auc_score(y_test, y_pred)
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
+
+print(pd.Series({"Accuracy": acc,
+                 "ROC-AUC": roc_auc,
+                 "Precision": precision,
+                 "Recall": recall,
+                 "F1-score": f1}).to_string())
+
+
 
 models = pd.DataFrame({
     'Model': ['Support Vector Machines', 'KNN', 'Logistic Regression',
