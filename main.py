@@ -191,6 +191,7 @@ feat_importances = pd.Series(model.feature_importances_, index=x.columns)
 feat_importances.nlargest(12).plot(kind='barh')
 plt.show()
 
+train=train.drop(['anaemia','creatinine_phosphokinase','diabetes','high_blood_pressure','platelets','sex','smoking','age'],axis=1)
 
 train.corr().style.background_gradient(cmap='coolwarm').set_precision(3)
 
